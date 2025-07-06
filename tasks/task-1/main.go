@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+// Встраивание структур.
+
+// Дана структура Human (с произвольным набором полей и методов).
+// Реализовать встраивание методов в структуре Action
+// от родительской структуры Human (аналог наследования).
+
+// Structure representing a human
 type human struct {
 	FirstName string
 	LastName  string
@@ -12,17 +19,17 @@ type human struct {
 	IsMarried bool
 }
 
-// Full name of the human / Полное имя человека
+// Full name of the human
 func (h human) fullName() string {
 	return fmt.Sprintf("%s %s", h.FirstName, h.LastName)
 }
 
-// Check if the human is an adult / Проверка, является ли человек взрослым
+// Check if the human is an adult
 func (h human) isAdult() bool {
 	return h.Age >= 18
 }
 
-// Body Mass Index (BMI) calculation / Расчет индекса массы тела (ИМТ)
+// Body Mass Index (BMI) calculation
 func (h human) bmi() float64 {
 	if h.Height <= 0 {
 		return 0
@@ -30,7 +37,7 @@ func (h human) bmi() float64 {
 	return h.Weight / (h.Height * h.Height)
 }
 
-// Marital status of the human / Семейное положение человека
+// Marital status of the human
 func (h human) maritalStatus() string {
 	if h.IsMarried {
 		return "Married"
@@ -39,10 +46,11 @@ func (h human) maritalStatus() string {
 	return "Single"
 }
 
+// Structure representing an action performed by a human
 type action struct {
 	human
 	Activity string
-	Duration int
+	Duration int // in minutes
 }
 
 func main() {
@@ -51,15 +59,15 @@ func main() {
 		LastName:  "Doe",
 		Age:       30,
 		Gender:    "male",
-		Height:    1.75,
-		Weight:    70.0,
+		Height:    1.75, // in meters
+		Weight:    70.0, // in kilograms
 		IsMarried: true,
 	}
 
 	a := action{
 		human:    h,
 		Activity: "Running",
-		Duration: 30, // in minutes
+		Duration: 30,
 	}
 
 	fmt.Printf("Full Name: %s\n", a.fullName())
