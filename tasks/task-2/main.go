@@ -19,10 +19,10 @@ func main() {
 	for i, num := range nums {
 		// Increment the WaitGroup counter for each goroutine
 		wg.Add(1)
-		go func(i, num int) {
+		go func() {
 			defer wg.Done()
 			result[i] = num * num
-		}(i, num)
+		}()
 	}
 
 	// Wait for all goroutines to finish
