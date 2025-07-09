@@ -21,8 +21,8 @@ func getIntersection(a, b []int) []int {
 	}
 
 	for _, v := range b {
-		if m[v] && !seen[v] { // If element exists in 'a' and not already added
-			seen[v] = true // Mark as added
+		if m[v] && !seen[v] { // If an element exists in 'a' and not already added
+			seen[v] = true // mark as added
 			result = append(result, v)
 		}
 	}
