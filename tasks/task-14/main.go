@@ -5,6 +5,12 @@ import (
 	"reflect"
 )
 
+// Определение типа переменной в runtime
+
+// Разработать программу, которая в runtime способна определить тип переменной,
+// переданной в неё (на вход подаётся interface{}).
+// Типы, которые нужно распознавать: int, string, bool, chan (канал).
+
 func identifyType(i interface{}) {
 	switch val := i.(type) {
 	case int:
