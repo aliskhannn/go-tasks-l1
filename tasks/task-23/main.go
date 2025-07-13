@@ -2,10 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
-	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	i := 3
-
+func DeleteElement(s []int, i int) []int {
 	// Shift the tail to the location of the element being removed
 	copy(s[i:], s[i+1:])
 
@@ -15,5 +12,14 @@ func main() {
 	// Decrease slice length by 1
 	s = s[:len(s)-1]
 
-	fmt.Println(s) // [1 2 3 5 6 7 8 9 10]
+	return s
+}
+
+func main() {
+	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	i := 3
+
+	res := DeleteElement(s, i)
+
+	fmt.Println(res) // [1 2 3 5 6 7 8 9 10]
 }

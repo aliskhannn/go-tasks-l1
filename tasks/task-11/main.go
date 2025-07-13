@@ -2,14 +2,6 @@ package main
 
 import "fmt"
 
-// Пересечение множеств
-// Реализовать пересечение двух неупорядоченных множеств (например, двух слайсов) — т.е. вывести элементы, присутствующие и в первом, и во втором.
-//
-// Пример:
-// A = {1,2,3}
-// B = {2,3,4}
-// Пересечение = {2,3}
-
 func getIntersection(a, b []int) []int {
 	m := make(map[int]bool)    // to save elems from 'a'
 	seen := make(map[int]bool) // to avoid it duplicated
