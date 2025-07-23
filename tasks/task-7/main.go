@@ -59,9 +59,7 @@ func exampleMutexMap(wg *sync.WaitGroup, mu *sync.Mutex) {
 	wg.Wait() // Wait for all goroutines to finish
 
 	for i := 0; i < 100; i++ {
-		mu.Lock()
-		value, ok := m[i] // Safely read from the map
-		mu.Unlock()
+		value, ok := m[i]
 		if ok {
 			fmt.Println("Key:", i, "Value:", value) // Print the key and value
 		} else {
